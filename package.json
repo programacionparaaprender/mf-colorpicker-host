@@ -7,7 +7,8 @@
     "build:dev": "webpack --mode development",
     "build:start": "cd dist && PORT=3000 npx serve",
     "start": "webpack serve --mode development",
-    "start:live": "webpack serve --open --mode development --live-reload --hot"
+    "start:live": "webpack serve --open --mode development --live-reload --hot",
+    "github": "ng build --configuration production --base-href=/mf-colorpicker-host/ && npx angular-cli-ghpages --dir=dist/mf-colorpicker-host --branch=gh-pages"
   },
   "license": "MIT",
   "author": {
