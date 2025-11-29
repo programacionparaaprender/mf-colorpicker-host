@@ -1,6 +1,11 @@
 ### curso
 https://udemy.com/course/micro-frontend-arquitectura-de-aplicaciones-web-escalables/
 
+###
+>- npm install gh-pages --save-dev
+>- "github": "npm run build && gh-pages -d dist -b gh-pages"
+
+
 ### sitio para publicaciones
 https://app.netlify.com/
 
