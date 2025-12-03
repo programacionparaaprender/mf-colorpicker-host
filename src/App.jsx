@@ -1,13 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-
+import { I18nextProvider } from 'react-i18next'; // Importa I18nextProvider
 import { useTranslation, withTranslation, Trans } from 'react-i18next';
 
 import ColorPicker from "mf_colorpicker/ColorPicker";
 import ColorList from "mf_colorlist/ColorList";
 import useColors from "mf_colorpicker/useColors";
 import Presentacion from "./Presentacion";
+// import i18n (needs to be bundled ;))
+import i18n from './i18n'; // Asegúrate de que la ruta es correcta
 
 
 const App = () => {
@@ -18,10 +20,11 @@ const App = () => {
 
   const changeLanguage = (lng) => {
     i18n.changeLanguage(lng);
-    console.log('es');
+    console.log(lng);
   };
   
   const handleLanguageChange = (e) => {
+    console.log(e.target.value);
     i18n.changeLanguage(e.target.value);
   };
   return (
@@ -51,15 +54,6 @@ const App = () => {
                   </Link>
                 </li>
               </ul>
-
-              <div className="d-flex align-items-center">
-                <select className="form-select form-select-sm bg-dark text-white border-secondary"
-                        style={{width: "120px"}}>
-                  <option>
-                      texto
-                  </option>
-                </select>
-              </div>
              
               {/* ===== SELECTOR DE IDIOMA ===== */}
               <div className="d-flex align-items-center ms-3">
@@ -77,14 +71,6 @@ const App = () => {
               
           </div>
         </nav>
-        <div>
-            <select class="form-select" aria-label="Default select example">
-              <option selected>Open this select menu</option>
-              <option value="1">One</option>
-              <option value="2">Two</option>
-              <option value="3">Three</option>
-            </select>
-        </div>
         <Routes>
           <Route
             path="/"
@@ -113,4 +99,11 @@ const App = () => {
   );
 };
 
-ReactDOM.render(<App />, document.getElementById("app"));
+// Envuelve App con I18nextProvider y pasa la instancia de i18n
+const AppWithProvider = () => (
+  <I18nextProvider i18n={i18n}>
+    <App />
+  </I18nextProvider>
+);
+
+ReactDOM.render(<AppWithProvider />, document.getElementById("app"));
