@@ -24,8 +24,6 @@ const App = () => {
   const handleLanguageChange = (e) => {
     i18n.changeLanguage(e.target.value);
   };
-  changeLanguage('es');
-  console.log('funciona');
   return (
     <Router>
       <div>
