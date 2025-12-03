@@ -5,6 +5,11 @@ https://udemy.com/course/micro-frontend-arquitectura-de-aplicaciones-web-escalab
 >- npm install gh-pages --save-dev
 >- "github": "npm run build && gh-pages -d dist -b gh-pages"
 
+### para cambiar de idioma
+>- npm install react-i18next i18next i18next-http-backend i18next-browser-languagedetector
+>- npm install react-i18next i18next
+
+
 
 ### sitio para publicaciones
 https://app.netlify.com/
